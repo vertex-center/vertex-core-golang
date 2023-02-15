@@ -1,17 +1,15 @@
 package pubsub
 
 import (
+	"bytes"
 	"fmt"
 	"net/http"
-	"net/url"
-	"strings"
 )
 
-func Pub(key string, message string) {
-	data := url.Values{}
+func Pub(key string, message []byte) {
 	requestURL := fmt.Sprintf("http://localhost:6140/pub/%s", key)
 
-	req, err := http.NewRequest("POST", requestURL, strings.NewReader(data.Encode()))
+	req, err := http.NewRequest("POST", requestURL, bytes.NewBuffer(message))
 	if err != nil {
 		fmt.Printf("%v\n", err)
 	}
