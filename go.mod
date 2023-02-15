@@ -1,4 +1,4 @@
-module MicroserviceCore
+module github.com/quentinguidee/microservice-core
 
 go 1.19
 
