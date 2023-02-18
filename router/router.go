@@ -1,9 +1,10 @@
 package router
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/quentinguidee/microservice-core/middleware"
-	"net/http"
 )
 
 func CreateRouter() *gin.Engine {
