@@ -4,9 +4,9 @@
 <h1 align="center">Vertex Core (for golang)</h1>
 
 <p align="center">
-<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/vertex-center/vertex-spotify?color=DE3C4B&labelColor=1E212B&style=for-the-badge">
-<img alt="GitHub license" src="https://img.shields.io/github/license/vertex-center/vertex-spotify?color=DE3C4B&labelColor=1E212B&style=for-the-badge">
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/vertex-center/vertex-spotify?color=DE3C4B&labelColor=1E212B&style=for-the-badge">
+<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/vertex-center/vertex-core-golang?color=DE3C4B&labelColor=1E212B&style=for-the-badge">
+<img alt="GitHub license" src="https://img.shields.io/github/license/vertex-center/vertex-core-golang?color=DE3C4B&labelColor=1E212B&style=for-the-badge">
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/vertex-center/vertex-core-golang?color=DE3C4B&labelColor=1E212B&style=for-the-badge">
 </p>
 
 ## About
