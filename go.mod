@@ -1,4 +1,4 @@
-module github.com/quentinguidee/microservice-core
+module github.com/vertex-center/vertex-core-golang
 
 go 1.19
 

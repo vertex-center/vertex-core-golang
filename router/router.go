@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/quentinguidee/microservice-core/middleware"
+	"github.com/vertex-center/vertex-core-golang/router/middleware"
 )
 
 func CreateRouter() *gin.Engine {
