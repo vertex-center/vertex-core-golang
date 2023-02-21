@@ -34,7 +34,7 @@ func Pub(key string, message []byte) error {
 
 	err = redisClient.Publish(context.Background(), key, message).Err()
 	if err != nil {
-		return fmt.Errorf("[pubsub] Error on Pub(): %v\n", err)
+		return fmt.Errorf("[pubsub] Error on Pub(): %v", err)
 	}
 	return nil
 }
