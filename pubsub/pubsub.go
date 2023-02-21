@@ -2,6 +2,7 @@ package pubsub
 
 import (
 	"context"
+	"errors"
 	"fmt"
 
 	"github.com/redis/go-redis/v9"
@@ -18,22 +19,32 @@ func InitPubSub() {
 	})
 }
 
-func ensureRedisInitialized() {
+func ensureRedisInitialized() error {
 	if redisClient == nil {
-		panic("Redis Client not initialized. Call InitPubSub() on initialization.")
+		return errors.New("redis Client not initialized, need to call InitPubSub() on initialization")
 	}
+	return nil
 }
 
-func Pub(key string, message []byte) {
-	ensureRedisInitialized()
-	err := redisClient.Publish(context.Background(), key, message).Err()
+func Pub(key string, message []byte) error {
+	err := ensureRedisInitialized()
 	if err != nil {
-		fmt.Printf("[pubsub] Error on Pub(): %v\n", err)
+		return err
 	}
+
+	err = redisClient.Publish(context.Background(), key, message).Err()
+	if err != nil {
+		return fmt.Errorf("[pubsub] Error on Pub(): %v\n", err)
+	}
+	return nil
 }
 
-func Sub(key string) *redis.PubSub {
-	ensureRedisInitialized()
+func Sub(key string) (*redis.PubSub, error) {
+	err := ensureRedisInitialized()
+	if err != nil {
+		return nil, err
+	}
+
 	subscriber := redisClient.Subscribe(context.Background(), key)
-	return subscriber
+	return subscriber, nil
 }
