@@ -7,10 +7,11 @@ import (
 	"github.com/vertex-center/vertex-core-golang/router/middleware"
 )
 
-// CreateRouter creates a new Gin Router.
+// CreateRouter creates a new Gin Router, using cors configuration passed as parameter.
 // It returns the main router, and an API route group.
-func CreateRouter() (*gin.Engine, *gin.RouterGroup) {
+func CreateRouter(cors gin.HandlerFunc) (*gin.Engine, *gin.RouterGroup) {
 	router := gin.Default()
+	router.Use(cors)
 	router.Use(middleware.ErrorMiddleware())
 
 	router.GET("/ping", ping)
