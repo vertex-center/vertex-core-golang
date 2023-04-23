@@ -9,9 +9,10 @@ import (
 
 // CreateRouter creates a new Gin Router, using cors configuration passed as parameter.
 // It returns the main router, and an API route group.
-func CreateRouter(cors gin.HandlerFunc) (*gin.Engine, *gin.RouterGroup) {
+func CreateRouter(cors gin.HandlerFunc, uses ...gin.HandlerFunc) (*gin.Engine, *gin.RouterGroup) {
 	router := gin.Default()
 	router.Use(cors)
+	router.Use(uses...)
 	router.Use(middleware.ErrorMiddleware())
 
 	router.GET("/ping", ping)
