@@ -8,11 +8,13 @@ import (
 )
 
 // CreateRouter creates a new Gin Router, using cors configuration passed as parameter.
-// It returns the main router, and an API route group.
+// It returns the main router, and an API route group. The default logger is disabled by
+// default. Add gin.Logger() in uses if needed.
 func CreateRouter(cors gin.HandlerFunc, uses ...gin.HandlerFunc) (*gin.Engine, *gin.RouterGroup) {
-	router := gin.Default()
+	router := gin.New()
 	router.Use(cors)
 	router.Use(uses...)
+	router.Use(gin.Recovery())
 	router.Use(middleware.ErrorMiddleware())
 
 	router.GET("/ping", ping)
